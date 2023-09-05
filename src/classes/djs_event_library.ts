@@ -1,4 +1,14 @@
+import { dolmenjs } from "../dolmenjs.js";
+
 export class djs_event_library {
+    djs: dolmenjs;
+
+    constructor(djs: dolmenjs) {
+        console.log("djs_event_library:constructor");
+
+        this.djs = djs;
+    }
+
     delay = (json_parameter) => {
         setTimeout(() => {
             if (json_parameter.on_delay && json_parameter.on_delay.p_object && json_parameter.on_delay.p_var_struct) {

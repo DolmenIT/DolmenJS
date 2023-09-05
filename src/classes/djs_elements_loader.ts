@@ -1,5 +1,14 @@
+import { dolmenjs } from "../dolmenjs.js";
+
 export class djs_elements_loader {
+    djs: dolmenjs;
     parameters = {};
+
+    constructor(djs: dolmenjs) {
+        console.log("djs_elements_loader:constructor");
+
+        this.djs = djs;
+    }
 
     add = async (p_object: string) => {
         try {

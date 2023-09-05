@@ -1,18 +1,17 @@
 {
   "compilerOptions": {
-    "outFile": "./build/dolmenjs.js", // Ceci indique où le fichier de sortie sera sauvegardé
-    "module": "system",  // Utilisation du module système pour la compilation
-    "target": "es5",    // Cible ECMAScript, vous pouvez choisir une autre version selon vos besoins
-
+    "rootDir": "./src", // Ceci indique où le fichier de sortie sera sauvegardé
+    "outDir": "./build/dolmenjs", // Ceci indique où le fichier de sortie sera sauvegardé
+    "target": "ES5",    // Cible ECMAScript, vous pouvez choisir une autre version selon vos besoins
+    "module": "ESNext",  // Utilisation du module système pour la compilation
+    "removeComments": true,
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    "declaration": false,
+    "sourceMap": false,   
     "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-    "strict": true,                                      /* Enable all strict type-checking options. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-  "include": [
-    "src/**/*.ts"  // Assurez-vous de pointer vers vos fichiers .ts
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": [ "**/*.ts" ],
+  "exclude": [ "node_modules" ]
 }

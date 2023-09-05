@@ -1,16 +1,24 @@
 <!doctype html>
 <html lang="en" id="html">
+
 <head>
 	<meta charset="utf-8">
 	<title>test</title>
-    
-	<link rel="stylesheet" href="vendors/dolmenjs/dolmenjs-202309-1.css"/>
-	<!--<link rel="stylesheet" href="vendors/dolmenjs/dolmenjs-202309-1.min.css"/>-->
-    <script src="vendors/dolmenjs/dolmenjs-202309-1.js"></script>
-	<!--<script src="vendors/dolmenjs/dolmenjs-202309-1.min.js"></script>-->
+
+	<!-- <link rel="stylesheet" href="vendors/dolmenjs/dolmenjs-202309.css" /> -->
+
+	<!-- <script src="vendors/requirejs/requirejs-2.3.6.min.js"></script> -->
 	<script src="vendors/jquery/jquery-3.7.1.min.js"></script>
+	<script type="module" src="vendors/dolmenjs/202309/dolmenjs.js"></script>
 </head>
 
+<body>
+	<div id="app-container">
+		<div id="app" class="portrait"></div>
+	</div>
+</body>
+
+<!--
 <body>
 	<div id="djs-app-1">test</div>
 	<div id="djs-app-2">test</div>
@@ -20,4 +28,6 @@
     djs.app("test-app-1").start("djs-app-1");
     djs.app("test-app-2").start("djs-app-2");
 </script>
+-->
+
 </html>

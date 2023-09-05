@@ -1,19 +1,33 @@
+import { dolmenjs } from "../dolmenjs.js";
+
 export class djs_effect_library {
+    djs: dolmenjs;
+
+    constructor(djs: dolmenjs) {
+        console.log("djs_effect_library:constructor");
+
+        this.djs = djs;
+        this.tick();
+    }
+
     private effects: { [key: string]: any } = {};
     private effectCounter: number = 1;
 
     public preset = {
         zoom: { p_zoom_start: 0, p_zoom_end: 1, p_speed: 0.01 },
         zoom2: { p_zoom_start: 1, p_zoom_end: 2, p_speed: 0.01 },
+        slow_zoom2: { p_zoom_start: 1, p_zoom_end: 2, p_speed: 0.002 },
         alpha_show: { p_alpha_start: 0, p_alpha_end: 1, p_speed: 0.01 },
         alpha_hide: { p_alpha_start: 1, p_alpha_end: 0, p_speed: 0.01 },
-        shadow: { p_x: -0.5, p_y: 0.5, p_z: 0.5, p_color: color.gray8 },
+        slow_alpha_hide: { p_alpha_start: 1, p_alpha_end: 0, p_speed: 0.002 },
+        shadow: { p_x: -0.5, p_y: 0.5, p_z: 0.5, p_color: djs.color.gray8 },
         alpha_title_show: { p_alpha_start: 0, p_alpha_end: 1.00, p_speed: 0.01 },
-        shadow_title: { p_x: 0, p_y: 0.45, p_z: 0.45, p_color: color.gray8 },
+        shadow_title: { p_x: 0, p_y: 0.45, p_z: 0.45, p_color: djs.color.gray8 },
         alpha_subtitle_show: { p_alpha_start: 0, p_alpha_end: 0.85, p_speed: 0.01 },
-        shadow_subtitle: { p_x: 0, p_y: 0.50, p_z: 0.50, p_color: color.gray7 },
+        shadow_subtitle: { p_x: 0, p_y: 0.50, p_z: 0.50, p_color: djs.color.gray7 },
         alpha_button_show: { p_alpha_start: 0, p_alpha_end: 0.70, p_speed: 0.01 },
-        shadow_button: { p_x: 0, p_y: 0.55, p_z: 0.55, p_color: color.gray9 },
+        shadow_button: { p_x: 0, p_y: 0.55, p_z: 0.55, p_color: djs.color.gray9 },
+        border_0: { p_top_left: 0, p_top_right: 0, p_bottom_left: 0, p_bottom_right: 0 },
         border_top_1: { p_top_left: 1, p_top_right: 1, p_bottom_left: 0, p_bottom_right: 0 },
         border_top_2: { p_top_left: 2, p_top_right: 2, p_bottom_left: 0, p_bottom_right: 0 },
         border_top_3: { p_top_left: 3, p_top_right: 3, p_bottom_left: 0, p_bottom_right: 0 },
@@ -32,10 +46,6 @@ export class djs_effect_library {
         border_button_4: { p_top_left: 4, p_top_right: 0, p_bottom_left: 0, p_bottom_right: 4 },
         border_button_5: { p_top_left: 5, p_top_right: 0, p_bottom_left: 0, p_bottom_right: 5 },
         border_button_6: { p_top_left: 6, p_top_right: 0, p_bottom_left: 0, p_bottom_right: 6 }
-    }
-
-    constructor() {
-        this.tick();
     }
 
     tick = () => {

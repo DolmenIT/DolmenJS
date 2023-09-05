@@ -1,5 +1,8 @@
 export class djs_action_library {
-    goto = (json_parameter) => {
+    constructor() {
+        console.log("djs_action_library:constructor");
+    }
+    goto = (json_parameter: any) => {
         const scriptUrl = json_parameter.p_object;
         const scriptElement = document.createElement("script");
         if (typeof json_parameter.p_var_struct != "undefined") {
@@ -9,7 +12,7 @@ export class djs_action_library {
         scriptElement.src = scriptUrl + "?" + Date.now();;
         scriptElement.onload = () => {
             console.log(json_parameter.p_destruct);
-            djs_wm.destruct(json_parameter.p_destruct);
+            this.djs.wm.destruct(json_parameter.p_destruct);
         };
         document.head.appendChild(scriptElement);
     }

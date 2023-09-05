@@ -1,13 +1,7 @@
-import { dolmenjs } from "../dolmenjs.js";
-
-export class djs_fonts {
-    djs: dolmenjs;
-
-    constructor(djs: dolmenjs) {
+var djs_fonts = (function () {
+    function djs_fonts(djs) {
         console.log("djs_fonts:constructor");
-
         this.djs = djs;
-
         this.arial95 = "font-family: Arial; font-size: " + this.djs.di.rw(9.5) + "; letter-spacing: " + this.djs.di.rw(0.65) + "px;";
         this.arial90 = "font-family: Arial; font-size: " + this.djs.di.rw(9.0) + "; letter-spacing: " + this.djs.di.rw(0.60) + "px;";
         this.arial85 = "font-family: Arial; font-size: " + this.djs.di.rw(8.5) + "; letter-spacing: " + this.djs.di.rw(0.55) + "px;";
@@ -22,9 +16,10 @@ export class djs_fonts {
         this.arial40 = "font-family: Arial; font-size: " + this.djs.di.rw(4.0) + "; letter-spacing: " + this.djs.di.rw(0.10) + "px;";
         this.arial35 = "font-family: Arial; font-size: " + this.djs.di.rw(3.5) + "; letter-spacing: " + this.djs.di.rw(0.05) + "px;";
         this.arial30 = "font-family: Arial; font-size: " + this.djs.di.rw(3.0) + "; letter-spacing: " + this.djs.di.rw(0.00) + "px;";
-        this.center = "djs-font-halign-center"
+        this.center = "djs-font-halign-center";
         this.gray0 = "djs-font-gray0";
         this.gray2 = "djs-font-gray2";
     }
-}
-//EOF
+    return djs_fonts;
+}());
+export { djs_fonts };

@@ -1,7 +1,17 @@
+import { dolmenjs } from "../dolmenjs.js";
+
 export class djs_window_manager {
-    // Nouvelle propriété pour stocker les fenêtres virtuelles avec leurs objets respectifs.
+    djs: dolmenjs;
+    // propriété pour stocker les fenêtres virtuelles avec leurs objets respectifs.
     windowsWithObjects: { [windowName: string]: { objectName: string; object: any } } = {};
+    persistentObjects: { objectName: string; object: any } = {};
     currentWindow: string | null = null; // Fenêtre virtuelle actuelle
+
+    constructor(djs: dolmenjs) {
+        console.log("djs_window_manager:constructor");
+
+        this.djs = djs;
+    }
 
     // Méthode pour définir la fenêtre virtuelle actuelle.
     setWindow = (windowName: string) => {
@@ -24,6 +34,18 @@ export class djs_window_manager {
         }
     };
     add = this.addObject;
+
+    // Nouvelle méthode pour ajouter un objet persistant à une fenêtre virtuelle.
+    addPersistant = (objectName: string, obj: any) => {
+        if (this.persistentObjects[objectName]) {
+            if (obj instanceof HTMLElement) {
+                obj.remove();
+            }
+        } else {
+            this.persistentObjects[objectName] = obj;
+            return this.persistentObjects[objectName];
+        }
+    };
 
     // Méthode pour obtenir un objet par son nom dans la fenêtre virtuelle actuelle.
     getObject = (objectName: string) => {

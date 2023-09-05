@@ -1,4 +1,14 @@
+import { dolmenjs } from "../dolmenjs.js";
+
 export class djs_object_basic {
+  djs: dolmenjs;
+
+  constructor(djs: dolmenjs) {
+    console.log("djs_object_basic:constructor");
+
+    this.djs = djs;
+  }
+
   createAndAppendElement = (dom_parent, json_parameter, classname) => {
     const appDiv = dom_parent || document.getElementById('app');
     const element = document.createElement('div');
