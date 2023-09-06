@@ -1,12 +1,8 @@
-import { dolmenjs } from "../dolmenjs.js";
+import { djs } from "../dolmenjs.js";
 
 export class djs_internationalization {
-    djs: dolmenjs;
-
-    constructor(djs: dolmenjs) {
+    constructor() {
         console.log("djs_internationalization:constructor");
-
-        this.djs = djs;
     }
 
     private currentLanguage: string = 'en';

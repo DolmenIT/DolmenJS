@@ -1,12 +1,8 @@
-import { dolmenjs } from "../dolmenjs.js";
+import { djs } from "../dolmenjs.js";
 
 export class djs_colors {
-    djs: dolmenjs;
-
-    constructor(djs: dolmenjs) {
+    constructor() {
         console.log("djs_colors:constructor");
-
-        this.djs = djs;
 
         // Appel de la méthode 'generateColorShades' pour générer différentes teintes de couleurs.
         // Les teintes générées sont stockées dans des variables correspondant aux différents groupes de couleurs.

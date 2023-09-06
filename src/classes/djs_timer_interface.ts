@@ -1,16 +1,14 @@
-import { dolmenjs } from "../dolmenjs.js";
+import { djs } from "../dolmenjs.js";
 
 export class djs_timer_interface {
-    djs: dolmenjs;
     elapsedTimeSum = 0;
     lastUpdateTime = Date.now();
     isPaused = false;
     formattedTime = '';
 
-    constructor(djs: dolmenjs) {
+    constructor() {
         console.log("djs_timer_interface:constructor");
 
-        this.djs = djs;
         this.loop();
     }
 

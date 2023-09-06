@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var djs_elements_loader = (function () {
-    function djs_elements_loader(djs) {
+    function djs_elements_loader() {
         var _this = this;
         this.parameters = {};
         this.add = function (p_object) { return __awaiter(_this, void 0, void 0, function () {
@@ -61,7 +61,6 @@ var djs_elements_loader = (function () {
             });
         }); };
         console.log("djs_elements_loader:constructor");
-        this.djs = djs;
     }
     djs_elements_loader.prototype.set_parameters = function (p_var_struct) {
         if (typeof p_var_struct === 'object') {

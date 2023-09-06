@@ -1,5 +1,5 @@
 var djs_timer_interface = (function () {
-    function djs_timer_interface(djs) {
+    function djs_timer_interface() {
         var _this = this;
         this.elapsedTimeSum = 0;
         this.lastUpdateTime = Date.now();
@@ -38,7 +38,6 @@ var djs_timer_interface = (function () {
             _this.isPaused = !_this.isPaused;
         };
         console.log("djs_timer_interface:constructor");
-        this.djs = djs;
         this.loop();
     }
     return djs_timer_interface;

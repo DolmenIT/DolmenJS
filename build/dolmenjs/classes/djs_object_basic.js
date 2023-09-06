@@ -1,5 +1,5 @@
 var djs_object_basic = (function () {
-    function djs_object_basic(djs) {
+    function djs_object_basic() {
         var _this = this;
         this.createAndAppendElement = function (dom_parent, json_parameter, classname) {
             var appDiv = dom_parent || document.getElementById('app');
@@ -59,7 +59,6 @@ var djs_object_basic = (function () {
             return element;
         };
         console.log("djs_object_basic:constructor");
-        this.djs = djs;
     }
     return djs_object_basic;
 }());

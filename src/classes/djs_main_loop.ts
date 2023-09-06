@@ -1,15 +1,13 @@
-import { dolmenjs } from "../dolmenjs.js";
+import { djs } from "../dolmenjs.js";
 
 export class djs_main_loop {
-    djs: dolmenjs;
     callbacks: {};
     timeInterval: number;
     running: boolean;
 
-    constructor(djs: dolmenjs) {
+    constructor() {
         console.log("djs_main_loop:constructor");
 
-        this.djs = djs;
         this.callbacks = {};
         this.timeInterval = 10; // Interval in milliseconds (1 second)
         this.running = false; // Flag to track if the loop is running

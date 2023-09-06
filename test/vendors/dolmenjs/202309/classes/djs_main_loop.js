@@ -1,7 +1,6 @@
 var djs_main_loop = (function () {
-    function djs_main_loop(djs) {
+    function djs_main_loop() {
         console.log("djs_main_loop:constructor");
-        this.djs = djs;
         this.callbacks = {};
         this.timeInterval = 10;
         this.running = false;

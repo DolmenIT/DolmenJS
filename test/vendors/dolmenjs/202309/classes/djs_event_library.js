@@ -1,5 +1,5 @@
 var djs_event_library = (function () {
-    function djs_event_library(djs) {
+    function djs_event_library() {
         this.delay = function (json_parameter) {
             setTimeout(function () {
                 if (json_parameter.on_delay && json_parameter.on_delay.p_object && json_parameter.on_delay.p_var_struct) {
@@ -45,7 +45,6 @@ var djs_event_library = (function () {
             });
         };
         console.log("djs_event_library:constructor");
-        this.djs = djs;
     }
     return djs_event_library;
 }());

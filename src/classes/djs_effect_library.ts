@@ -1,12 +1,9 @@
-import { dolmenjs } from "../dolmenjs.js";
+import { djs } from "../dolmenjs.js";
 
 export class djs_effect_library {
-    djs: dolmenjs;
-
-    constructor(djs: dolmenjs) {
+    constructor() {
         console.log("djs_effect_library:constructor");
 
-        this.djs = djs;
         this.tick();
     }
 

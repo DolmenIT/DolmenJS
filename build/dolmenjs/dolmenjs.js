@@ -17,34 +17,27 @@ var dolmenjs = (function () {
     function dolmenjs() {
         var _this = this;
         this.init = function () {
-            _this.ac = new djs_action_library(_this);
-            _this.color = new djs_colors(_this);
-            _this.di = new djs_dimensions(_this);
-            _this.fx = new djs_effect_library(_this);
-            _this.el = new djs_elements_loader(_this);
-            _this.ev = new djs_event_library(_this);
-            _this.font = new djs_fonts(_this);
-            _this.i18n = new djs_internationalization(_this);
-            _this.ml = new djs_main_loop(_this);
-            _this.ni = new djs_native_interface(_this);
-            _this.oa = new djs_object_advance(_this);
-            _this.ob = new djs_object_basic(_this);
-            _this.rm = new djs_routes_manager(_this);
-            _this.ti = new djs_timer_interface(_this);
-            _this.wm = new djs_window_manager(_this);
+            _this.ac = new djs_action_library();
+            _this.color = new djs_colors();
+            _this.di = new djs_dimensions();
+            _this.fx = new djs_effect_library();
+            _this.el = new djs_elements_loader();
+            _this.ev = new djs_event_library();
+            _this.font = new djs_fonts();
+            _this.i18n = new djs_internationalization();
+            _this.ml = new djs_main_loop();
+            _this.ni = new djs_native_interface();
+            _this.oa = new djs_object_advance();
+            _this.ob = new djs_object_basic();
+            _this.rm = new djs_routes_manager();
+            _this.ti = new djs_timer_interface();
+            _this.wm = new djs_window_manager();
         };
         console.log("dolmenjs:constructor");
     }
     return dolmenjs;
 }());
 export { dolmenjs };
-var djs = new dolmenjs();
+window.djs = new dolmenjs();
+export var djs = window.djs;
 djs.init();
-document.addEventListener('DOMContentLoaded', function (event) {
-    console.log("document");
-    djs.rm.run_main();
-});
-window.addEventListener('load', function (event) {
-    console.log("window");
-    djs.rm.run_main();
-});

@@ -1,14 +1,12 @@
-import { dolmenjs } from "../dolmenjs.js";
+import { djs } from "../dolmenjs.js";
 
 export class djs_routes_manager {
-    djs: dolmenjs;
     routes_loaded = false;
     json_routes = {};
 
-    constructor(djs: dolmenjs) {
+    constructor() {
         console.log("djs_routes_manager:constructor");
 
-        this.djs = djs;
         fetch("configs/djs_routes.json")
             .then(response => response.json())
             .then(json_response => {

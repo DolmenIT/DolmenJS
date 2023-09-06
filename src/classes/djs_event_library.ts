@@ -1,12 +1,8 @@
-import { dolmenjs } from "../dolmenjs.js";
+import { djs } from "../dolmenjs.js";
 
 export class djs_event_library {
-    djs: dolmenjs;
-
-    constructor(djs: dolmenjs) {
+    constructor() {
         console.log("djs_event_library:constructor");
-
-        this.djs = djs;
     }
 
     delay = (json_parameter) => {

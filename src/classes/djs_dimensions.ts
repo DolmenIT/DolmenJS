@@ -1,12 +1,8 @@
-import { dolmenjs } from "../dolmenjs.js";
+import { djs } from "../dolmenjs.js";
 
 export class djs_dimensions {
-    djs: dolmenjs;
-
-    constructor(djs: dolmenjs) {
+    constructor() {
         console.log("djs_dimensions:constructor");
-
-        this.djs = djs;
     }
 
     vh = (h_size: number) => {

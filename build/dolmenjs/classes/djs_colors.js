@@ -1,5 +1,5 @@
 var djs_colors = (function () {
-    function djs_colors(djs) {
+    function djs_colors() {
         this.none = "transparent";
         this.alpha = function (color, alpha) {
             var hslRegex = /^hsl\(\s*(\d+)\s*,\s*(\d+%)\s*,\s*(\d+%)\s*\)$/;
@@ -13,7 +13,6 @@ var djs_colors = (function () {
             return "hsla(".concat(hue, ",").concat(saturation, ",").concat(lightness, ",").concat(alpha, ")");
         };
         console.log("djs_colors:constructor");
-        this.djs = djs;
         var blues = this.generateColorShades("blue", 0, [210, 85, 75], 9, [210, 40, 30]);
         var lightBlues = this.generateColorShades("lightblue", 0, [210, 80, 90], 9, [210, 35, 45]);
         var greens = this.generateColorShades("green", 0, [135, 85, 75], 9, [135, 40, 30]);

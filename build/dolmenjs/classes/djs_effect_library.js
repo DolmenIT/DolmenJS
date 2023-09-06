@@ -9,8 +9,9 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+import { djs } from "../dolmenjs.js";
 var djs_effect_library = (function () {
-    function djs_effect_library(djs) {
+    function djs_effect_library() {
         var _this = this;
         this.effects = {};
         this.effectCounter = 1;
@@ -190,7 +191,6 @@ var djs_effect_library = (function () {
             json_parameter.dirty = true;
         };
         console.log("djs_effect_library:constructor");
-        this.djs = djs;
         this.tick();
     }
     return djs_effect_library;

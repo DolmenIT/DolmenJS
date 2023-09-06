@@ -1,5 +1,5 @@
 var djs_dimensions = (function () {
-    function djs_dimensions(djs) {
+    function djs_dimensions() {
         var _this = this;
         this.vh = function (h_size) {
             var viewHeight = window.innerHeight;
@@ -19,7 +19,6 @@ var djs_dimensions = (function () {
             return size + "px";
         };
         console.log("djs_dimensions:constructor");
-        this.djs = djs;
     }
     return djs_dimensions;
 }());

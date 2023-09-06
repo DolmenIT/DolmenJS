@@ -1,5 +1,5 @@
 var djs_object_advance = (function () {
-    function djs_object_advance(djs) {
+    function djs_object_advance() {
         var _this = this;
         this.createAndAppendElement = function (dom_parent, element_type, json_parameter, classname) {
             var appDiv = dom_parent || document.getElementById('app');
@@ -108,7 +108,6 @@ var djs_object_advance = (function () {
             return td;
         };
         console.log("djs_object_advance:constructor");
-        this.djs = djs;
     }
     return djs_object_advance;
 }());

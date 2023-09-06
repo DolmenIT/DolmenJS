@@ -1,5 +1,5 @@
 var djs_window_manager = (function () {
-    function djs_window_manager(djs) {
+    function djs_window_manager() {
         var _this = this;
         this.windowsWithObjects = {};
         this.persistentObjects = {};
@@ -53,7 +53,6 @@ var djs_window_manager = (function () {
         };
         this.destruct = this.destructWindow;
         console.log("djs_window_manager:constructor");
-        this.djs = djs;
     }
     return djs_window_manager;
 }());

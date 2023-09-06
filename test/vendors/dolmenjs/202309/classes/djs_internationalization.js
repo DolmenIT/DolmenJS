@@ -1,5 +1,5 @@
 var djs_internationalization = (function () {
-    function djs_internationalization(djs) {
+    function djs_internationalization() {
         var _this = this;
         this.currentLanguage = 'en';
         this.translations = {};
@@ -23,7 +23,6 @@ var djs_internationalization = (function () {
         };
         this.get = this.getTranslation;
         console.log("djs_internationalization:constructor");
-        this.djs = djs;
     }
     return djs_internationalization;
 }());

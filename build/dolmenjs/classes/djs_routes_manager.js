@@ -1,5 +1,5 @@
 var djs_routes_manager = (function () {
-    function djs_routes_manager(djs) {
+    function djs_routes_manager() {
         var _this = this;
         this.routes_loaded = false;
         this.json_routes = {};
@@ -23,7 +23,6 @@ var djs_routes_manager = (function () {
             }
         };
         console.log("djs_routes_manager:constructor");
-        this.djs = djs;
         fetch("configs/djs_routes.json")
             .then(function (response) { return response.json(); })
             .then(function (json_response) {

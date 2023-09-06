@@ -1,6 +1,6 @@
+import { djs } from '../dolmenjs.js';
 var djs_action_library = (function () {
     function djs_action_library() {
-        var _this = this;
         this.goto = function (json_parameter) {
             var scriptUrl = json_parameter.p_object;
             var scriptElement = document.createElement("script");
@@ -12,7 +12,7 @@ var djs_action_library = (function () {
             ;
             scriptElement.onload = function () {
                 console.log(json_parameter.p_destruct);
-                _this.djs.wm.destruct(json_parameter.p_destruct);
+                djs.wm.destruct(json_parameter.p_destruct);
             };
             document.head.appendChild(scriptElement);
         };

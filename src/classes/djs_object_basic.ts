@@ -1,12 +1,8 @@
-import { dolmenjs } from "../dolmenjs.js";
+import { djs } from "../dolmenjs.js";
 
 export class djs_object_basic {
-  djs: dolmenjs;
-
-  constructor(djs: dolmenjs) {
+  constructor() {
     console.log("djs_object_basic:constructor");
-
-    this.djs = djs;
   }
 
   createAndAppendElement = (dom_parent, json_parameter, classname) => {

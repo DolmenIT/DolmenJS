@@ -1,5 +1,5 @@
 var djs_native_interface = (function () {
-    function djs_native_interface(djs) {
+    function djs_native_interface() {
         this.fetchJSON = function (filePath) {
             return new Promise(function (resolve, reject) {
                 if (typeof window.nativeInterface === "undefined") {
@@ -62,7 +62,6 @@ var djs_native_interface = (function () {
             });
         };
         console.log("djs_native_interface:constructor");
-        this.djs = djs;
     }
     return djs_native_interface;
 }());

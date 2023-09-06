@@ -15,57 +15,58 @@ import { djs_internationalization } from './classes/djs_internationalization.js'
 import { djs_fonts } from './classes/djs_fonts.js';
 
 export class dolmenjs {
-  ac: djs_action_library;
-  color: djs_colors;
-  di: djs_dimensions;
-  fx: djs_effect_library;
-  el: djs_elements_loader;
-  ev: djs_event_library;
-  font: djs_fonts;
-  i18n: djs_internationalization;
-  ml: djs_main_loop;
-  ni: djs_native_interface;
-  oa: djs_object_advance;
-  ob: djs_object_basic;
-  rm: djs_routes_manager;
-  ti: djs_timer_interface;
-  wm: djs_window_manager;
+  ac: djs_action_library | undefined;
+  color: djs_colors | undefined;
+  di: djs_dimensions | undefined;
+  fx: djs_effect_library | undefined;
+  el: djs_elements_loader | undefined;
+  ev: djs_event_library | undefined;
+  font: djs_fonts | undefined;
+  i18n: djs_internationalization | undefined;
+  ml: djs_main_loop | undefined;
+  ni: djs_native_interface | undefined;
+  oa: djs_object_advance | undefined;
+  ob: djs_object_basic | undefined;
+  rm: djs_routes_manager | undefined;
+  ti: djs_timer_interface | undefined;
+  wm: djs_window_manager | undefined;
 
   constructor() {
     console.log("dolmenjs:constructor");
   }
 
   init = () => {
-    this.ac = new djs_action_library(this);
-    this.color = new djs_colors(this);
-    this.di = new djs_dimensions(this);
-    this.fx = new djs_effect_library(this);
-    this.el = new djs_elements_loader(this);
-    this.ev = new djs_event_library(this);
-    this.font = new djs_fonts(this);
-    this.i18n = new djs_internationalization(this);
-    this.ml = new djs_main_loop(this);
-    this.ni = new djs_native_interface(this);
-    this.oa = new djs_object_advance(this);
-    this.ob = new djs_object_basic(this);
-    this.rm = new djs_routes_manager(this);
-    this.ti = new djs_timer_interface(this);
-    this.wm = new djs_window_manager(this);
+    this.ac = new djs_action_library();
+    this.color = new djs_colors();
+    this.di = new djs_dimensions();
+    this.fx = new djs_effect_library();
+    this.el = new djs_elements_loader();
+    this.ev = new djs_event_library();
+    this.font = new djs_fonts();
+    this.i18n = new djs_internationalization();
+    this.ml = new djs_main_loop();
+    this.ni = new djs_native_interface();
+    this.oa = new djs_object_advance();
+    this.ob = new djs_object_basic();
+    this.rm = new djs_routes_manager();
+    this.ti = new djs_timer_interface();
+    this.wm = new djs_window_manager();
   }
 
   // Vous pouvez ajouter d'autres modules et propriétés ici si nécessaire
 }
 
 // Créer une instance globale
-const djs = new dolmenjs();
+(window as any).djs = new dolmenjs();
+export const djs = (window as any).djs;
 djs.init();
 
-document.addEventListener('DOMContentLoaded', (event) => {
-  console.log("document");
-  djs.rm.run_main();
-});
+// document.addEventListener('DOMContentLoaded', (event) => {
+//   console.log("document");
+//   djs.rm.run_main();
+// });
 
-window.addEventListener('load', (event) => {
-  console.log("window");
-  djs.rm.run_main();
-});
+// window.addEventListener('load', (event) => {
+//   console.log("window");
+//   djs.rm.run_main();
+// });

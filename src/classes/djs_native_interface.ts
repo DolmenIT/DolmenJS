@@ -1,12 +1,8 @@
-import { dolmenjs } from "../dolmenjs.js";
+import { djs } from "../dolmenjs.js";
 
 export class djs_native_interface {
-    djs: dolmenjs;
-
-    constructor(djs: dolmenjs) {
+    constructor() {
         console.log("djs_native_interface:constructor");
-
-        this.djs = djs;
     }
 
     // Fonction pour charger le fichier JSON à partir de l'URL
