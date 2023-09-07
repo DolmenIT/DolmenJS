@@ -5,34 +5,34 @@ export class djs_object_advance {
         console.log("djs_object_advance:constructor");
     }
 
-    createAndAppendElement = (dom_parent, element_type, json_parameter, classname) => {
+    createAndAppendElement = (dom_parent: HTMLElement | any, element_type: string, json_parameter: any, classname: string) => {
         const appDiv = dom_parent || document.getElementById('app');
         const element = document.createElement(element_type);
         element.className = classname;
 
         if (typeof json_parameter !== "undefined") {
             if (typeof json_parameter.p_x !== "undefined") {
-                element.style.left = px(json_parameter.p_x);
+                element.style.left = djs.di.px(json_parameter.p_x);
             }
             if (typeof json_parameter.p_y !== "undefined") {
-                element.style.top = px(json_parameter.p_y);
+                element.style.top = djs.di.px(json_parameter.p_y);
             }
             if (typeof json_parameter.p_w !== "undefined") {
-                element.style.width = px(json_parameter.p_w);
+                element.style.width = djs.di.px(json_parameter.p_w);
             }
             if (typeof json_parameter.p_h !== "undefined") {
-                element.style.height = px(json_parameter.p_h);
-                element.style.lineHeight = px(json_parameter.p_h);
+                element.style.height = djs.di.px(json_parameter.p_h);
+                element.style.lineHeight = djs.di.px(json_parameter.p_h);
             }
             if (typeof json_parameter.p_z !== "undefined") {
                 element.style.zIndex = json_parameter.p_z;
             }
             if (typeof json_parameter.p_margin !== "undefined") {
-                element.style.margin = px(json_parameter.p_margin);
+                element.style.margin = djs.di.px(json_parameter.p_margin);
             }
             if (typeof json_parameter.p_padding_top !== "undefined") {
-                element.style.paddingTop = px(json_parameter.p_padding_top);
-                element.style.lineHeight = px(json_parameter.p_h - json_parameter.p_padding_top);
+                element.style.paddingTop = djs.di.px(json_parameter.p_padding_top);
+                element.style.lineHeight = djs.di.px(json_parameter.p_h - json_parameter.p_padding_top);
             }
             if (typeof json_parameter.p_text !== "undefined") {
                 element.textContent = json_parameter.p_text;
@@ -62,17 +62,17 @@ export class djs_object_advance {
         return element;
     };
 
-    title = (json_parameter) => {
+    title = (json_parameter: any) => {
         const classname = 'djs-title';
         return this.createAndAppendElement(null, 'div', json_parameter, classname);
     };
 
-    section = (json_parameter) => {
+    section = (json_parameter: any) => {
         const classname = 'djs-title';
         return this.createAndAppendElement(null, 'section', json_parameter, classname);
     };
 
-    button = (json_parameter) => {
+    button = (json_parameter: any) => {
         const classname = 'djs-button';
         const button = this.createAndAppendElement(null, 'button', json_parameter, classname);
 
@@ -85,7 +85,7 @@ export class djs_object_advance {
         return button;
     };
 
-    list = (json_parameter) => {
+    list = (json_parameter: any) => {
         const classname = 'djs-list';
         const ul = this.createAndAppendElement(null, 'ul', json_parameter, classname);
         ul.style.overflowY = "scroll";
@@ -93,12 +93,12 @@ export class djs_object_advance {
         return ul;
     };
 
-    listItem = (list, json_parameter) => {
+    listItem = (list: any, json_parameter: any) => {
         const classname = 'djs-item';
         return this.createAndAppendElement(list, 'li', json_parameter, classname);
     };
 
-    table = (objParent, json_parameter) => {
+    table = (objParent: any, json_parameter: any) => {
         const classname = 'djs-table';
         const table = this.createAndAppendElement(objParent, 'table', json_parameter, classname);
         table.style.display = "table";
@@ -108,7 +108,7 @@ export class djs_object_advance {
         return table;
     };
 
-    tableRow = (objParent, json_parameter) => {
+    tableRow = (objParent: any, json_parameter: any) => {
         const classname = 'djs-tablerow';
         const tr = this.createAndAppendElement(objParent, 'tr', json_parameter, classname);
         tr.style.display = "table-row";
@@ -116,7 +116,7 @@ export class djs_object_advance {
         return tr;
     };
 
-    tableCell = (objParent, json_parameter) => {
+    tableCell = (objParent: any, json_parameter: any) => {
         const classname = 'djs-tablecell';
         const td = this.createAndAppendElement(objParent, 'td', json_parameter, classname);
         td.style.display = "table-cell";

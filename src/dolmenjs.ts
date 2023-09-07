@@ -61,12 +61,7 @@ export class dolmenjs {
 export const djs = (window as any).djs;
 djs.init();
 
-// document.addEventListener('DOMContentLoaded', (event) => {
-//   console.log("document");
-//   djs.rm.run_main();
-// });
-
-// window.addEventListener('load', (event) => {
-//   console.log("window");
-//   djs.rm.run_main();
-// });
+window.addEventListener('load', (event) => {
+  console.log("window:load");
+  djs.rm.run_main();
+});

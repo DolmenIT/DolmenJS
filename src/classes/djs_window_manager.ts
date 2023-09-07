@@ -2,8 +2,8 @@ import { djs } from "../dolmenjs.js";
 
 export class djs_window_manager {
     // propriété pour stocker les fenêtres virtuelles avec leurs objets respectifs.
-    windowsWithObjects: { [windowName: string]: { objectName: string; object: any } } = {};
-    persistentObjects: { objectName: string; object: any } = {};
+    windowsWithObjects: any = {};
+    persistentObjects: any = {};
     currentWindow: string | null = null; // Fenêtre virtuelle actuelle
 
     constructor() {

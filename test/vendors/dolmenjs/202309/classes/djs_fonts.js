@@ -1,6 +1,6 @@
 import { djs } from "../dolmenjs.js";
-var djs_fonts = (function () {
-    function djs_fonts() {
+export class djs_fonts {
+    constructor() {
         console.log("djs_fonts:constructor");
         this.arial95 = "font-family: Arial; font-size: " + djs.di.rw(9.5) + "; letter-spacing: " + djs.di.rw(0.65) + "px;";
         this.arial90 = "font-family: Arial; font-size: " + djs.di.rw(9.0) + "; letter-spacing: " + djs.di.rw(0.60) + "px;";
@@ -20,6 +20,4 @@ var djs_fonts = (function () {
         this.gray0 = "djs-font-gray0";
         this.gray2 = "djs-font-gray2";
     }
-    return djs_fonts;
-}());
-export { djs_fonts };
+}

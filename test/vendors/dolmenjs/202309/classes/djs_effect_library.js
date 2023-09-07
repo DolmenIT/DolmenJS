@@ -1,18 +1,6 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 import { djs } from "../dolmenjs.js";
-var djs_effect_library = (function () {
-    function djs_effect_library() {
-        var _this = this;
+export class djs_effect_library {
+    constructor() {
         this.effects = {};
         this.effectCounter = 1;
         this.preset = {
@@ -49,150 +37,148 @@ var djs_effect_library = (function () {
             border_button_5: { p_top_left: 5, p_top_right: 0, p_bottom_left: 0, p_bottom_right: 5 },
             border_button_6: { p_top_left: 6, p_top_right: 0, p_bottom_left: 0, p_bottom_right: 6 }
         };
-        this.tick = function () {
-            _this.doEffects();
-            setTimeout(function () {
-                _this.tick();
+        this.tick = () => {
+            this.doEffects();
+            setTimeout(() => {
+                this.tick();
             }, 5);
         };
-        this.doEffects = function () {
-            for (var key in _this.effects) {
-                var effect = _this.effects[key];
-                var effectType = effect.effectType;
-                var effectFunctions = {
-                    scroll: _this.scrollStep,
-                    zoom: _this.zoomStep,
-                    alpha: _this.alphaStep,
-                    textShadow: _this.textShadowStep,
-                    boxShadow: _this.boxShadowStep,
-                    borderRadius: _this.borderRadiusStep,
-                    text: _this.textStep,
+        this.doEffects = () => {
+            for (const key in this.effects) {
+                const effect = this.effects[key];
+                const { effectType } = effect;
+                const effectFunctions = {
+                    scroll: this.scrollStep,
+                    zoom: this.zoomStep,
+                    alpha: this.alphaStep,
+                    textShadow: this.textShadowStep,
+                    boxShadow: this.boxShadowStep,
+                    borderRadius: this.borderRadiusStep,
+                    text: this.textStep,
                 };
-                var effectFunction = effectFunctions[effectType];
+                const effectFunction = effectFunctions[effectType];
                 if (effectFunction) {
                     effectFunction(effect);
                 }
             }
-            for (var key in _this.effects) {
-                var effect = _this.effects[key];
+            for (const key in this.effects) {
+                const effect = this.effects[key];
                 if ("dirty" in effect) {
-                    _this.dropEffect(key);
+                    this.dropEffect(key);
                 }
             }
         };
-        this.addEffect = function (json_parameter) {
-            var effectId = "fx".concat(_this.effectCounter);
-            var effectWithId = __assign(__assign({}, json_parameter), { effectId: effectId });
-            _this.effects[effectId] = effectWithId;
-            _this.effectCounter++;
+        this.addEffect = (json_parameter) => {
+            const effectId = `fx${this.effectCounter}`;
+            const effectWithId = Object.assign(Object.assign({}, json_parameter), { effectId: effectId });
+            this.effects[effectId] = effectWithId;
+            this.effectCounter++;
             return effectId;
         };
-        this.dropEffect = function (effectId) {
-            delete _this.effects[effectId];
+        this.dropEffect = (effectId) => {
+            delete this.effects[effectId];
         };
-        this.scroll = function (p_instance, json_parameter) {
-            var effectType = "scroll";
-            var effectWithType = __assign(__assign({}, json_parameter), { effectType: effectType, p_instance: p_instance, currentX: json_parameter.p_x_start, currentY: json_parameter.p_y_start });
-            var effectId = _this.addEffect(effectWithType);
+        this.scroll = (p_instance, json_parameter) => {
+            const effectType = "scroll";
+            const effectWithType = Object.assign(Object.assign({}, json_parameter), { effectType: effectType, p_instance: p_instance, currentX: json_parameter.p_x_start, currentY: json_parameter.p_y_start });
+            const effectId = this.addEffect(effectWithType);
             return effectId;
         };
-        this.scrollStep = function (json_parameter) {
-            var directionX = json_parameter.p_x_end >= json_parameter.p_x_start ? 1 : -1;
-            var directionY = json_parameter.p_y_end >= json_parameter.p_y_start ? 1 : -1;
-            var updatedX = json_parameter.currentX + json_parameter.p_speed * directionX;
-            var updatedY = json_parameter.currentY + json_parameter.p_speed * directionY;
-            var newX = directionX > 0 ? Math.min(updatedX, json_parameter.p_x_end) : Math.max(updatedX, json_parameter.p_x_end);
-            var newY = directionY > 0 ? Math.min(updatedY, json_parameter.p_y_end) : Math.max(updatedY, json_parameter.p_y_end);
+        this.scrollStep = (json_parameter) => {
+            const directionX = json_parameter.p_x_end >= json_parameter.p_x_start ? 1 : -1;
+            const directionY = json_parameter.p_y_end >= json_parameter.p_y_start ? 1 : -1;
+            const updatedX = json_parameter.currentX + json_parameter.p_speed * directionX;
+            const updatedY = json_parameter.currentY + json_parameter.p_speed * directionY;
+            const newX = directionX > 0 ? Math.min(updatedX, json_parameter.p_x_end) : Math.max(updatedX, json_parameter.p_x_end);
+            const newY = directionY > 0 ? Math.min(updatedY, json_parameter.p_y_end) : Math.max(updatedY, json_parameter.p_y_end);
             json_parameter.currentX = newX;
             json_parameter.currentY = newY;
             json_parameter.p_instance.style.left = json_parameter.currentX;
             json_parameter.p_instance.style.top = json_parameter.currentY;
-            var reachedEndX = (directionX > 0 && newX >= json_parameter.p_x_end) || (directionX < 0 && newX <= json_parameter.p_x_end);
-            var reachedEndY = (directionY > 0 && newY >= json_parameter.p_y_end) || (directionY < 0 && newY <= json_parameter.p_y_end);
+            const reachedEndX = (directionX > 0 && newX >= json_parameter.p_x_end) || (directionX < 0 && newX <= json_parameter.p_x_end);
+            const reachedEndY = (directionY > 0 && newY >= json_parameter.p_y_end) || (directionY < 0 && newY <= json_parameter.p_y_end);
             if (reachedEndX && reachedEndY) {
                 json_parameter.dirty = true;
             }
         };
-        this.zoom = function (p_instance, json_parameter) {
-            var effectType = "zoom";
-            var effectWithType = __assign(__assign({}, json_parameter), { effectType: effectType, p_instance: p_instance, currentZoom: json_parameter.p_zoom_start });
-            var effectId = _this.addEffect(effectWithType);
+        this.zoom = (p_instance, json_parameter) => {
+            const effectType = "zoom";
+            const effectWithType = Object.assign(Object.assign({}, json_parameter), { effectType: effectType, p_instance: p_instance, currentZoom: json_parameter.p_zoom_start });
+            const effectId = this.addEffect(effectWithType);
             return effectId;
         };
-        this.zoomStep = function (json_parameter) {
-            var directionZoom = json_parameter.p_zoom_end >= json_parameter.p_zoom_start ? 1 : -1;
-            var updatedZoom = json_parameter.currentZoom + json_parameter.p_speed * directionZoom;
-            var newZoom = directionZoom > 0 ? Math.min(updatedZoom, json_parameter.p_zoom_end) : Math.max(updatedZoom, json_parameter.p_zoom_end);
+        this.zoomStep = (json_parameter) => {
+            const directionZoom = json_parameter.p_zoom_end >= json_parameter.p_zoom_start ? 1 : -1;
+            const updatedZoom = json_parameter.currentZoom + json_parameter.p_speed * directionZoom;
+            const newZoom = directionZoom > 0 ? Math.min(updatedZoom, json_parameter.p_zoom_end) : Math.max(updatedZoom, json_parameter.p_zoom_end);
             json_parameter.currentZoom = newZoom;
             json_parameter.p_instance.style.scale = json_parameter.currentZoom;
-            var reachedEndZoom = (directionZoom > 0 && newZoom >= json_parameter.p_zoom_end) || (directionZoom < 0 && newZoom <= json_parameter.p_zoom_end);
+            const reachedEndZoom = (directionZoom > 0 && newZoom >= json_parameter.p_zoom_end) || (directionZoom < 0 && newZoom <= json_parameter.p_zoom_end);
             if (reachedEndZoom) {
                 json_parameter.dirty = true;
             }
         };
-        this.alpha = function (p_instance, json_parameter) {
-            var effectType = "alpha";
-            var effectWithType = __assign(__assign({}, json_parameter), { effectType: effectType, p_instance: p_instance, currentAlpha: json_parameter.p_alpha_start });
-            var effectId = _this.addEffect(effectWithType);
+        this.alpha = (p_instance, json_parameter) => {
+            const effectType = "alpha";
+            const effectWithType = Object.assign(Object.assign({}, json_parameter), { effectType: effectType, p_instance: p_instance, currentAlpha: json_parameter.p_alpha_start });
+            const effectId = this.addEffect(effectWithType);
             return effectId;
         };
-        this.alphaStep = function (json_parameter) {
-            var directionAlpha = json_parameter.p_alpha_end >= json_parameter.p_alpha_start ? 1 : -1;
-            var updatedAlpha = json_parameter.currentAlpha + json_parameter.p_speed * directionAlpha;
-            var newAlpha = directionAlpha > 0 ? Math.min(updatedAlpha, json_parameter.p_alpha_end) : Math.max(updatedAlpha, json_parameter.p_alpha_end);
+        this.alphaStep = (json_parameter) => {
+            const directionAlpha = json_parameter.p_alpha_end >= json_parameter.p_alpha_start ? 1 : -1;
+            const updatedAlpha = json_parameter.currentAlpha + json_parameter.p_speed * directionAlpha;
+            const newAlpha = directionAlpha > 0 ? Math.min(updatedAlpha, json_parameter.p_alpha_end) : Math.max(updatedAlpha, json_parameter.p_alpha_end);
             json_parameter.currentAlpha = newAlpha;
             json_parameter.p_instance.style.opacity = json_parameter.currentAlpha;
-            var reachedEndAlpha = (directionAlpha > 0 && newAlpha >= json_parameter.p_alpha_end) || (directionAlpha < 0 && newAlpha <= json_parameter.p_alpha_end);
+            const reachedEndAlpha = (directionAlpha > 0 && newAlpha >= json_parameter.p_alpha_end) || (directionAlpha < 0 && newAlpha <= json_parameter.p_alpha_end);
             if (reachedEndAlpha) {
                 json_parameter.dirty = true;
             }
         };
-        this.textShadow = function (p_instance, json_parameter) {
-            var effectType = "textShadow";
-            var effectWithType = __assign(__assign({}, json_parameter), { effectType: effectType, p_instance: p_instance });
-            var effectId = _this.addEffect(effectWithType);
+        this.textShadow = (p_instance, json_parameter) => {
+            const effectType = "textShadow";
+            const effectWithType = Object.assign(Object.assign({}, json_parameter), { effectType: effectType, p_instance: p_instance });
+            const effectId = this.addEffect(effectWithType);
             return effectId;
         };
-        this.textShadowStep = function (json_parameter) {
-            var updatedShadow = px(rw(json_parameter.p_x)) + " " + px(rw(json_parameter.p_y)) + " " + px(rw(json_parameter.p_z)) + " " + json_parameter.p_color;
+        this.textShadowStep = (json_parameter) => {
+            const updatedShadow = djs.di.px(djs.di.rw(json_parameter.p_x)) + " " + djs.di.px(djs.di.rw(json_parameter.p_y)) + " " + djs.di.px(djs.di.rw(json_parameter.p_z)) + " " + json_parameter.p_color;
             json_parameter.p_instance.style.textShadow = updatedShadow;
             json_parameter.dirty = true;
         };
-        this.boxShadow = function (p_instance, json_parameter) {
-            var effectType = "boxShadow";
-            var effectWithType = __assign(__assign({}, json_parameter), { effectType: effectType, p_instance: p_instance });
-            var effectId = _this.addEffect(effectWithType);
+        this.boxShadow = (p_instance, json_parameter) => {
+            const effectType = "boxShadow";
+            const effectWithType = Object.assign(Object.assign({}, json_parameter), { effectType: effectType, p_instance: p_instance });
+            const effectId = this.addEffect(effectWithType);
             return effectId;
         };
-        this.boxShadowStep = function (json_parameter) {
-            var updatedShadow = px(rw(json_parameter.p_x)) + " " + px(rw(json_parameter.p_y)) + " " + px(rw(json_parameter.p_z)) + " " + json_parameter.p_color;
+        this.boxShadowStep = (json_parameter) => {
+            const updatedShadow = djs.di.px(djs.di.rw(json_parameter.p_x)) + " " + djs.di.px(djs.di.rw(json_parameter.p_y)) + " " + djs.di.px(djs.di.rw(json_parameter.p_z)) + " " + json_parameter.p_color;
             json_parameter.p_instance.style.boxShadow = updatedShadow;
             json_parameter.dirty = true;
         };
-        this.borderRadius = function (p_instance, json_parameter) {
-            var effectType = "borderRadius";
-            var effectWithType = __assign(__assign({}, json_parameter), { effectType: effectType, p_instance: p_instance });
-            var effectId = _this.addEffect(effectWithType);
+        this.borderRadius = (p_instance, json_parameter) => {
+            const effectType = "borderRadius";
+            const effectWithType = Object.assign(Object.assign({}, json_parameter), { effectType: effectType, p_instance: p_instance });
+            const effectId = this.addEffect(effectWithType);
             return effectId;
         };
-        this.borderRadiusStep = function (json_parameter) {
-            var updatedBorderRadius = px(rw(json_parameter.p_top_left)) + " " + px(rw(json_parameter.p_top_right)) + " " + px(rw(json_parameter.p_bottom_right)) + " " + px(rw(json_parameter.p_bottom_left));
+        this.borderRadiusStep = (json_parameter) => {
+            const updatedBorderRadius = djs.di.px(djs.di.rw(json_parameter.p_top_left)) + " " + djs.di.px(djs.di.rw(json_parameter.p_top_right)) + " " + djs.di.px(djs.di.rw(json_parameter.p_bottom_right)) + " " + djs.di.px(djs.di.rw(json_parameter.p_bottom_left));
             json_parameter.p_instance.style.borderRadius = updatedBorderRadius;
             json_parameter.dirty = true;
         };
-        this.text = function (p_instance, json_parameter) {
-            var effectType = "text";
-            var effectWithType = __assign(__assign({}, json_parameter), { effectType: effectType, p_instance: p_instance });
-            var effectId = _this.addEffect(effectWithType);
+        this.text = (p_instance, json_parameter) => {
+            const effectType = "text";
+            const effectWithType = Object.assign(Object.assign({}, json_parameter), { effectType: effectType, p_instance: p_instance });
+            const effectId = this.addEffect(effectWithType);
             return effectId;
         };
-        this.textStep = function (json_parameter) {
+        this.textStep = (json_parameter) => {
             json_parameter.p_instance.textContent = json_parameter.p_text;
             json_parameter.dirty = true;
         };
         console.log("djs_effect_library:constructor");
         this.tick();
     }
-    return djs_effect_library;
-}());
-export { djs_effect_library };
+}

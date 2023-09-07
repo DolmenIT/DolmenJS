@@ -100,7 +100,7 @@ export class djs_effect_library {
     // *******************************************************
     // ******************** Scroll Effect ********************
     // *******************************************************
-    public scroll = (p_instance, json_parameter: any) => {
+    public scroll = (p_instance: any, json_parameter: any) => {
         const effectType = "scroll"; // Remplacez "scroll" par le type d'effet réel
 
         const effectWithType = {
@@ -150,7 +150,7 @@ export class djs_effect_library {
     // *****************************************************
     // ******************** Zoom Effect ********************
     // *****************************************************
-    public zoom = (p_instance, json_parameter: any) => {
+    public zoom = (p_instance: any, json_parameter: any) => {
         const effectType = "zoom"; // Remplacez "zoom" par le type d'effet réel
 
         const effectWithType = {
@@ -193,7 +193,7 @@ export class djs_effect_library {
     // *****************************************************
     // ******************** Alpha Effect ********************
     // *****************************************************
-    public alpha = (p_instance, json_parameter: any) => {
+    public alpha = (p_instance: any, json_parameter: any) => {
         const effectType = "alpha"; // Remplacez "alpha" par le type d'effet réel
 
         const effectWithType = {
@@ -236,7 +236,7 @@ export class djs_effect_library {
     // ************************************************************
     // ******************** Text Shadow Effect ********************
     // ************************************************************
-    public textShadow = (p_instance, json_parameter: any) => {
+    public textShadow = (p_instance: any, json_parameter: any) => {
         const effectType = "textShadow"; // Remplacez "textShadow" par le type d'effet réel
 
         const effectWithType = {
@@ -252,7 +252,7 @@ export class djs_effect_library {
     public textShadowStep = (json_parameter: any) => {
         // TODO EFFECT
         //console.log(json_parameter.effectId + ", Alpha:" + json_parameter.currentAlpha);
-        const updatedShadow = px(rw(json_parameter.p_x)) + " " + px(rw(json_parameter.p_y)) + " " + px(rw(json_parameter.p_z)) + " " + json_parameter.p_color;
+        const updatedShadow = djs.di.px(djs.di.rw(json_parameter.p_x)) + " " + djs.di.px(djs.di.rw(json_parameter.p_y)) + " " + djs.di.px(djs.di.rw(json_parameter.p_z)) + " " + json_parameter.p_color;
 
         json_parameter.p_instance.style.textShadow = updatedShadow;
         json_parameter.dirty = true;
@@ -261,7 +261,7 @@ export class djs_effect_library {
     // ***********************************************************
     // ******************** Box Shadow Effect ********************
     // ***********************************************************
-    public boxShadow = (p_instance, json_parameter: any) => {
+    public boxShadow = (p_instance: any, json_parameter: any) => {
         const effectType = "boxShadow"; // Remplacez "boxShadow" par le type d'effet réel
 
         const effectWithType = {
@@ -277,7 +277,7 @@ export class djs_effect_library {
     public boxShadowStep = (json_parameter: any) => {
         // TODO EFFECT
         //console.log(json_parameter.effectId + ", Alpha:" + json_parameter.currentAlpha);
-        const updatedShadow = px(rw(json_parameter.p_x)) + " " + px(rw(json_parameter.p_y)) + " " + px(rw(json_parameter.p_z)) + " " + json_parameter.p_color;
+        const updatedShadow = djs.di.px(djs.di.rw(json_parameter.p_x)) + " " + djs.di.px(djs.di.rw(json_parameter.p_y)) + " " + djs.di.px(djs.di.rw(json_parameter.p_z)) + " " + json_parameter.p_color;
 
         json_parameter.p_instance.style.boxShadow = updatedShadow;
         json_parameter.dirty = true;
@@ -287,7 +287,7 @@ export class djs_effect_library {
     // ***********************************************************
     // ******************** Box Shadow Effect ********************
     // ***********************************************************
-    public borderRadius = (p_instance, json_parameter: any) => {
+    public borderRadius = (p_instance: any, json_parameter: any) => {
         const effectType = "borderRadius"; // Remplacez "border" par le type d'effet réel
 
         const effectWithType = {
@@ -303,7 +303,7 @@ export class djs_effect_library {
     public borderRadiusStep = (json_parameter: any) => {
         // TODO EFFECT
         //console.log(json_parameter.effectId + ", Alpha:" + json_parameter.currentAlpha);
-        const updatedBorderRadius = px(rw(json_parameter.p_top_left)) + " " + px(rw(json_parameter.p_top_right)) + " " + px(rw(json_parameter.p_bottom_right)) + " " + px(rw(json_parameter.p_bottom_left));
+        const updatedBorderRadius = djs.di.px(djs.di.rw(json_parameter.p_top_left)) + " " + djs.di.px(djs.di.rw(json_parameter.p_top_right)) + " " + djs.di.px(djs.di.rw(json_parameter.p_bottom_right)) + " " + djs.di.px(djs.di.rw(json_parameter.p_bottom_left));
 
         json_parameter.p_instance.style.borderRadius = updatedBorderRadius;
         json_parameter.dirty = true;
@@ -312,7 +312,7 @@ export class djs_effect_library {
     // ***********************************************************
     // ******************** Box Shadow Effect ********************
     // ***********************************************************
-    public text = (p_instance, json_parameter: any) => {
+    public text = (p_instance: any, json_parameter: any) => {
         const effectType = "text"; // Remplacez "border" par le type d'effet réel
 
         const effectWithType = {

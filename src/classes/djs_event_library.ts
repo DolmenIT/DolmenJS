@@ -5,7 +5,7 @@ export class djs_event_library {
         console.log("djs_event_library:constructor");
     }
 
-    delay = (json_parameter) => {
+    delay = (json_parameter: any) => {
         setTimeout(() => {
             if (json_parameter.on_delay && json_parameter.on_delay.p_object && json_parameter.on_delay.p_var_struct) {
                 const { p_object, p_instance, p_var_struct } = json_parameter.on_delay;
@@ -22,9 +22,9 @@ export class djs_event_library {
             }
         }, json_parameter.p_delay);
     }
-    timer = (json_parameter) => {
-        djs_ml.add(json_parameter.p_timer, () => {
-            if (parseInt(djs_ti.getElapsedTimeSum()) >= json_parameter.p_timer) {
+    timer = (json_parameter: any) => {
+        djs.ml.add(json_parameter.p_timer, () => {
+            if (parseInt(djs.ti.getElapsedTimeSum()) >= json_parameter.p_timer) {
                 if (json_parameter.on_timer && json_parameter.on_timer.p_object && json_parameter.on_timer.p_var_struct) {
                     const { p_object, p_instance, p_var_struct } = json_parameter.on_timer;
                     if (typeof p_object === "function") {
@@ -38,11 +38,11 @@ export class djs_event_library {
                         console.error("La fonction fournie n'est pas valide.");
                     }
                 }
-                djs_ml.destroy(json_parameter.p_timer);
+                djs.ml.destroy(json_parameter.p_timer);
             }
         })
     }
-    click = (object, json_parameter) => {
+    click = (object: any, json_parameter: any) => {
         object.addEventListener("click", () => {
             json_parameter.p_object(json_parameter.p_var_struct);
         });

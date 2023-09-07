@@ -10,7 +10,7 @@ export class djs_internationalization {
 
     setLangage = (str_Langage: string) => {
         try {
-            const translationData = djs_ni.fetchJSON('./i18n/' + str_Langage + '.json');
+            const translationData = djs.ni.fetchJSON('./i18n/' + str_Langage + '.json');
             this.translations[str_Langage] = translationData;
             this.currentLanguage = str_Langage;
         } catch (error) {

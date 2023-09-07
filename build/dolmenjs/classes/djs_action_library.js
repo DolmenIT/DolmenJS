@@ -1,16 +1,16 @@
 import { djs } from '../dolmenjs.js';
-var djs_action_library = (function () {
-    function djs_action_library() {
-        this.goto = function (json_parameter) {
-            var scriptUrl = json_parameter.p_object;
-            var scriptElement = document.createElement("script");
+export class djs_action_library {
+    constructor() {
+        this.goto = (json_parameter) => {
+            const scriptUrl = json_parameter.p_object;
+            const scriptElement = document.createElement("script");
             if (typeof json_parameter.p_var_struct != "undefined") {
                 window.params[scriptUrl] = {};
                 window.params[scriptUrl].p_var_struct = json_parameter.p_var_struct;
             }
             scriptElement.src = scriptUrl + "?" + Date.now();
             ;
-            scriptElement.onload = function () {
+            scriptElement.onload = () => {
                 console.log(json_parameter.p_destruct);
                 djs.wm.destruct(json_parameter.p_destruct);
             };
@@ -18,7 +18,5 @@ var djs_action_library = (function () {
         };
         console.log("djs_action_library:constructor");
     }
-    return djs_action_library;
-}());
-export { djs_action_library };
+}
 window.params = {};

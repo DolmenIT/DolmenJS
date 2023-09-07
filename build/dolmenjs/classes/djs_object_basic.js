@@ -1,19 +1,19 @@
-var djs_object_basic = (function () {
-    function djs_object_basic() {
-        var _this = this;
-        this.createAndAppendElement = function (dom_parent, json_parameter, classname) {
-            var appDiv = dom_parent || document.getElementById('app');
-            var element = document.createElement('div');
+import { djs } from "../dolmenjs.js";
+export class djs_object_basic {
+    constructor() {
+        this.createAndAppendElement = (dom_parent, json_parameter, classname) => {
+            const appDiv = dom_parent || document.getElementById('app');
+            const element = document.createElement('div');
             element.className = classname;
             if (typeof json_parameter !== "undefined") {
                 if (typeof json_parameter.p_x !== "undefined") {
                     element.style.left = json_parameter.p_x;
                 }
                 if (typeof json_parameter.p_y !== "undefined") {
-                    element.style.top = px(json_parameter.p_y);
+                    element.style.top = djs.di.px(json_parameter.p_y);
                 }
                 if (typeof json_parameter.p_w !== "undefined") {
-                    element.style.marginLeft = -json_parameter.p_w / 2;
+                    element.style.marginLeft = djs.di.px(-json_parameter.p_w / 2);
                     element.style.width = json_parameter.p_w;
                 }
                 if (typeof json_parameter.p_h !== "undefined") {
@@ -23,7 +23,7 @@ var djs_object_basic = (function () {
                     element.style.zIndex = json_parameter.p_z;
                 }
                 if (typeof json_parameter.p_file !== "undefined") {
-                    element.style.background = "url(".concat(json_parameter.p_file, ")");
+                    element.style.background = `url(${json_parameter.p_file})`;
                 }
                 if (typeof json_parameter.p_bgcolor !== "undefined") {
                     element.style.backgroundColor = json_parameter.p_bgcolor;
@@ -35,17 +35,17 @@ var djs_object_basic = (function () {
             appDiv.appendChild(element);
             return element;
         };
-        this.image = function (dom_parent, json_parameter) {
-            var classname = 'djs-image';
-            return _this.createAndAppendElement(dom_parent, json_parameter, classname);
+        this.image = (dom_parent, json_parameter) => {
+            const classname = 'djs-image';
+            return this.createAndAppendElement(dom_parent, json_parameter, classname);
         };
-        this.icon = function (dom_parent, json_parameter) {
-            var classname = 'djs-icon';
-            return _this.createAndAppendElement(dom_parent, json_parameter, classname);
+        this.icon = (dom_parent, json_parameter) => {
+            const classname = 'djs-icon';
+            return this.createAndAppendElement(dom_parent, json_parameter, classname);
         };
-        this.text = function (dom_parent, json_parameter) {
-            var classname = 'djs-text';
-            var element = _this.createAndAppendElement(dom_parent, json_parameter, classname);
+        this.text = (dom_parent, json_parameter) => {
+            const classname = 'djs-text';
+            const element = this.createAndAppendElement(dom_parent, json_parameter, classname);
             element.style.width = json_parameter.p_w || 9999;
             element.style.height = json_parameter.p_h || 0;
             element.style.marginLeft = json_parameter.p_ox || -4999.5;
@@ -60,6 +60,4 @@ var djs_object_basic = (function () {
         };
         console.log("djs_object_basic:constructor");
     }
-    return djs_object_basic;
-}());
-export { djs_object_basic };
+}

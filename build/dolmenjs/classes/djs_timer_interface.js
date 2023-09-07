@@ -1,45 +1,42 @@
-var djs_timer_interface = (function () {
-    function djs_timer_interface() {
-        var _this = this;
+export class djs_timer_interface {
+    constructor() {
         this.elapsedTimeSum = 0;
         this.lastUpdateTime = Date.now();
         this.isPaused = false;
         this.formattedTime = '';
-        this.reset = function () {
-            _this.elapsedTimeSum = 0;
-            _this.lastUpdateTime = Date.now();
-            _this.isPaused = false;
-            _this.formattedTime = '';
+        this.reset = () => {
+            this.elapsedTimeSum = 0;
+            this.lastUpdateTime = Date.now();
+            this.isPaused = false;
+            this.formattedTime = '';
         };
-        this.loop = function () {
-            _this.update();
-            setTimeout(function () {
-                _this.loop();
+        this.loop = () => {
+            this.update();
+            setTimeout(() => {
+                this.loop();
             }, 1);
         };
-        this.update = function () {
-            var currentTime = Date.now();
-            if (!_this.isPaused) {
-                var deltaTime = currentTime - _this.lastUpdateTime;
-                _this.elapsedTimeSum += deltaTime;
-                var totalSeconds = Math.floor(_this.elapsedTimeSum / 1000);
-                var totalMilliseconds = Math.floor((_this.elapsedTimeSum % 1000) / 10);
-                _this.formattedTime = "".concat(totalSeconds, ".").concat(totalMilliseconds.toString().padStart(2, '0'));
+        this.update = () => {
+            const currentTime = Date.now();
+            if (!this.isPaused) {
+                const deltaTime = currentTime - this.lastUpdateTime;
+                this.elapsedTimeSum += deltaTime;
+                const totalSeconds = Math.floor(this.elapsedTimeSum / 1000);
+                const totalMilliseconds = Math.floor((this.elapsedTimeSum % 1000) / 10);
+                this.formattedTime = `${totalSeconds}.${totalMilliseconds.toString().padStart(2, '0')}`;
             }
-            _this.lastUpdateTime = currentTime;
+            this.lastUpdateTime = currentTime;
         };
-        this.getElapsedTimeSum = function () {
-            return _this.elapsedTimeSum;
+        this.getElapsedTimeSum = () => {
+            return this.elapsedTimeSum;
         };
-        this.getFormattedTime = function () {
-            return _this.formattedTime;
+        this.getFormattedTime = () => {
+            return this.formattedTime;
         };
-        this.pause = function () {
-            _this.isPaused = !_this.isPaused;
+        this.pause = () => {
+            this.isPaused = !this.isPaused;
         };
         console.log("djs_timer_interface:constructor");
         this.loop();
     }
-    return djs_timer_interface;
-}());
-export { djs_timer_interface };
+}

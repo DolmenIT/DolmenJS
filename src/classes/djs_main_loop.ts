@@ -1,9 +1,9 @@
 import { djs } from "../dolmenjs.js";
 
 export class djs_main_loop {
-    callbacks: {};
     timeInterval: number;
     running: boolean;
+    callbacks: any;
 
     constructor() {
         console.log("djs_main_loop:constructor");
@@ -14,7 +14,7 @@ export class djs_main_loop {
         this.start();
     }
 
-    add(name, callback) {
+    add(name: string, callback: any) {
         if (!this.callbacks[name]) {
             this.callbacks[name] = [];
         }
@@ -45,7 +45,7 @@ export class djs_main_loop {
         this.running = false;
     }
 
-    destroy(name) {
+    destroy(name: string) {
         if (name in this.callbacks) {
             delete this.callbacks[name];
         }

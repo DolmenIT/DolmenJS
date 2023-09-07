@@ -5,7 +5,7 @@ export class djs_object_basic {
     console.log("djs_object_basic:constructor");
   }
 
-  createAndAppendElement = (dom_parent, json_parameter, classname) => {
+  createAndAppendElement = (dom_parent: HTMLElement, json_parameter: any, classname: string) => {
     const appDiv = dom_parent || document.getElementById('app');
     const element = document.createElement('div');
 
@@ -16,10 +16,10 @@ export class djs_object_basic {
         element.style.left = json_parameter.p_x;
       }
       if (typeof json_parameter.p_y !== "undefined") {
-        element.style.top = px(json_parameter.p_y);
+        element.style.top = djs.di.px(json_parameter.p_y);
       }
       if (typeof json_parameter.p_w !== "undefined") {
-        element.style.marginLeft = -json_parameter.p_w / 2;
+        element.style.marginLeft = djs.di.px(-json_parameter.p_w / 2);
         element.style.width = json_parameter.p_w;
       }
       if (typeof json_parameter.p_h !== "undefined") {
@@ -44,17 +44,17 @@ export class djs_object_basic {
     return element;
   };
 
-  image = (dom_parent, json_parameter) => {
+  image = (dom_parent: HTMLElement, json_parameter: any) => {
     const classname = 'djs-image';
     return this.createAndAppendElement(dom_parent, json_parameter, classname);
   };
 
-  icon = (dom_parent, json_parameter) => {
+  icon = (dom_parent: HTMLElement, json_parameter: any) => {
     const classname = 'djs-icon';
     return this.createAndAppendElement(dom_parent, json_parameter, classname);
   };
 
-  text = (dom_parent, json_parameter) => {
+  text = (dom_parent: HTMLElement, json_parameter: any) => {
     const classname = 'djs-text';
     const element = this.createAndAppendElement(dom_parent, json_parameter, classname);
     element.style.width = json_parameter.p_w || 9999;

@@ -1,10 +1,10 @@
-var djs_native_interface = (function () {
-    function djs_native_interface() {
-        this.fetchJSON = function (filePath) {
-            return new Promise(function (resolve, reject) {
+export class djs_native_interface {
+    constructor() {
+        this.fetchJSON = (filePath) => {
+            return new Promise((resolve, reject) => {
                 if (typeof window.nativeInterface === "undefined") {
                     fetch(filePath)
-                        .then(function (response) {
+                        .then((response) => {
                         if (!response.ok) {
                             reject(new Error("Erreur lors du chargement du fichier JSON."));
                         }
@@ -12,7 +12,7 @@ var djs_native_interface = (function () {
                             resolve(response.json());
                         }
                     })
-                        .catch(function (error) {
+                        .catch((error) => {
                         reject(error);
                     });
                 }
@@ -28,25 +28,25 @@ var djs_native_interface = (function () {
                 }
             });
         };
-        this.loadJS = function (filePath) {
-            return new Promise(function (resolve, reject) {
+        this.loadJS = (filePath) => {
+            return new Promise((resolve, reject) => {
                 if (typeof window.nativeInterface === "undefined") {
                     fetch(filePath)
-                        .then(function (response) {
+                        .then((response) => {
                         if (!response.ok) {
                             reject(new Error("Erreur lors du chargement du fichier JS."));
                         }
                         else {
                             response.text()
-                                .then(function (fileContent) {
+                                .then((fileContent) => {
                                 resolve(fileContent);
                             })
-                                .catch(function (error) {
+                                .catch((error) => {
                                 reject(error);
                             });
                         }
                     })
-                        .catch(function (error) {
+                        .catch((error) => {
                         reject(error);
                     });
                 }
@@ -63,6 +63,4 @@ var djs_native_interface = (function () {
         };
         console.log("djs_native_interface:constructor");
     }
-    return djs_native_interface;
-}());
-export { djs_native_interface };
+}

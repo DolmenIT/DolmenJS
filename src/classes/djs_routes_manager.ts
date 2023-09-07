@@ -1,8 +1,8 @@
 import { djs } from "../dolmenjs.js";
 
 export class djs_routes_manager {
-    routes_loaded = false;
-    json_routes = {};
+    routes_loaded: boolean = false;
+    json_routes: any = {};
 
     constructor() {
         console.log("djs_routes_manager:constructor");
@@ -23,7 +23,7 @@ export class djs_routes_manager {
         this.run_route('/');
     }
 
-    run_route = (route_name) => {
+    run_route = (route_name: string) => {
         console.log("djs_routes_manager:run_route:${route_name}");
         if (this.routes_loaded) {
             console.log("djs_routes_manager:run_route:${route_name}:route_loaded");

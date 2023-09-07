@@ -17,7 +17,7 @@ export class djs_elements_loader {
         }
     }
 
-    set_parameters(p_var_struct) {
+    set_parameters(p_var_struct: any) {
         if (typeof p_var_struct === 'object') {
             this.parameters = p_var_struct; // On remplace les paramètres actuels par les nouveaux
         } else {

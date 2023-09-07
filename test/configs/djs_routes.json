@@ -1,0 +1,5 @@
+{
+  "routes" : {
+    "/" : "./views/v_test_1.js?8"
+  }
+}
