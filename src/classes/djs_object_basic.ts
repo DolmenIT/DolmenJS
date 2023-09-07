@@ -13,17 +13,17 @@ export class djs_object_basic {
 
     if (typeof json_parameter !== "undefined") {
       if (typeof json_parameter.p_x !== "undefined") {
-        element.style.left = json_parameter.p_x;
+        element.style.left = djs.di.px(json_parameter.p_x);
       }
       if (typeof json_parameter.p_y !== "undefined") {
         element.style.top = djs.di.px(json_parameter.p_y);
       }
       if (typeof json_parameter.p_w !== "undefined") {
         element.style.marginLeft = djs.di.px(-json_parameter.p_w / 2);
-        element.style.width = json_parameter.p_w;
+        element.style.width = djs.di.px(json_parameter.p_w);
       }
       if (typeof json_parameter.p_h !== "undefined") {
-        element.style.height = json_parameter.p_h;
+        element.style.height = djs.di.px(json_parameter.p_h);
       }
       if (typeof json_parameter.p_z !== "undefined") {
         element.style.zIndex = json_parameter.p_z;
