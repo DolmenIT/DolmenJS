@@ -1,7 +1,7 @@
 
 BUILD_NAME="./build/dolmenjs/" 
 DIST_NAME="./dist/dolmenjs.js"
-TEST_NAME="./test/vendors/dolmenjs/dolmenjs_$(date +%Y%m).js"
+TEST_NAME="./test/vendors/dolmenjs/dolmenjs-$(date +%Y%m).js"
 
 rm -r $BUILD_NAME
 rm $DIST_NAME
