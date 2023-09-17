@@ -26,7 +26,6 @@ export class djs_native_interface {
                 // Utilisation de l'interface native dans le WebView
                 try {
                     var fileData = JSON.parse(window.nativeInterface.fetchJSON(filePath));
-                    console.log(fileData);
                     resolve(fileData);
                 } catch (error) {
                     reject(error);
@@ -35,7 +34,7 @@ export class djs_native_interface {
         });
     }
     // Fonction pour charger le fichier JS à partir de l'URL
-    loadJS = (filePath: string) => {
+    loadJS = (filePath: string, p_var_struct) => {
         return new Promise((resolve, reject) => {
             if (typeof window.nativeInterface === "undefined") {
                 // Utilisation de fetch pour charger le fichier JS à partir de l'URL
@@ -46,7 +45,7 @@ export class djs_native_interface {
                         } else {
                             response.text()
                                 .then((fileContent) => {
-                                    resolve(fileContent);
+                                    resolve({ data: fileContent, params: p_var_struct });
                                 })
                                 .catch((error) => {
                                     reject(error);
@@ -61,7 +60,7 @@ export class djs_native_interface {
                 // Utilisation de l'interface native dans le WebView
                 try {
                     var fileData = window.nativeInterface.loadJS(filePath);
-                    resolve(fileData);
+                    resolve({ data: fileData, params: p_var_struct });
                 } catch (error) {
                     reject(error);
                 }

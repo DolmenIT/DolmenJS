@@ -1,17 +1,23 @@
+import { djs } from "../dolmenjs.js";
 export class djs_elements_loader {
     constructor() {
         this.parameters = {};
-        this.add = async (p_object) => {
+        this.add = (p_object, p_var_struct) => {
             try {
-                const response = await fetch("./elements/" + p_object + ".processed.js?" + Date.now());
-                const textResponse = await response.text();
-                eval(textResponse);
+                const response = djs.ni.loadJS("elements/" + p_object + ".js", p_var_struct)
+                    .then(response => response)
+                    .then(js_response => {
+                    if (typeof js_response.params !== "undefined") {
+                        this.set_parameters(js_response.params);
+                    }
+                    eval(js_response.data);
+                });
             }
             catch (error) {
                 console.error("Erreur lors du chargement de l'élément :", error);
             }
         };
-        console.log("djs_elements_loader:constructor");
+        console.log("elements_loader:constructor");
     }
     set_parameters(p_var_struct) {
         if (typeof p_var_struct === 'object') {
