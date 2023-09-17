@@ -40,12 +40,12 @@ export class dolmenjs {
     this.color = new djs_colors();
     this.di = new djs_dimensions();
     this.fx = new djs_effect_library();
+    this.ni = new djs_native_interface();
     this.el = new djs_elements_loader();
     this.ev = new djs_event_library();
     this.font = new djs_fonts();
     this.i18n = new djs_internationalization();
     this.ml = new djs_main_loop();
-    this.ni = new djs_native_interface();
     this.oa = new djs_object_advance();
     this.ob = new djs_object_basic();
     this.rm = new djs_routes_manager();
