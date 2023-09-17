@@ -1,7 +1,7 @@
 import { djs } from "../dolmenjs.js";
 
 export class djs_elements_loader {
-    parameters = {};
+    parameters: Record<string, any> = {};
 
     constructor() {
       console.log("elements_loader:constructor");
@@ -22,9 +22,15 @@ export class djs_elements_loader {
       }
     }
   
-    set_parameters(p_var_struct) {
+    set_parameter(name: string, value: any) {
+      this.parameters[name] = value;
+    }
+
+    set_parameters(p_var_struct: any) {
       if (typeof p_var_struct === 'object') {
-        this.parameters = p_var_struct; // On remplace les paramètres actuels par les nouveaux
+        for (const key in p_var_struct) {
+          this.parameters[key] = p_var_struct[key];
+        }
       } else {
         console.error("Erreur : p_var_struct n'est pas un objet JSON valide.");
       }
