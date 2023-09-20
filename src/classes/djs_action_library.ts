@@ -5,14 +5,11 @@ export class djs_action_library {
         console.log("djs_action_library:constructor");
     }
     goto = (json_parameter: any) => {
-        const scriptUrl = json_parameter.p_object;
-        console.log(scriptUrl);
+        const scriptUrl = djs.rm.get(json_parameter.p_route);
         //const scriptUrl = new URL(document.currentScript.src).pathname;
         const filename = scriptUrl.substring(scriptUrl.lastIndexOf('/') + 1);
-        console.log(filename);
-        if (typeof json_parameter.p_var_struct != "undefined") {
-            window.params[filename] = {}
-            window.params[filename].p_var_struct = json_parameter.p_var_struct;
+        if (typeof json_parameter.p_params != "undefined") {
+            djs.params.setAll(json_parameter.p_params)
         }
         const scriptElement = document.createElement("script");
         scriptElement.src = scriptUrl + "?" + Date.now();
@@ -23,5 +20,4 @@ export class djs_action_library {
         document.head.appendChild(scriptElement);
     }
 }
-window.params = {};
 //EOF  

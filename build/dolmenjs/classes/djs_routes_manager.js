@@ -21,6 +21,15 @@ export class djs_routes_manager {
                 }, 100);
             }
         };
+        this.get = (route_name) => {
+            if (this.routes_loaded) {
+                return this.json_routes["routes"][route_name];
+            }
+            else {
+                console.error(`Route "${route_name}" not loaded yet.`);
+                return null;
+            }
+        };
         console.log("djs_routes_manager:constructor");
         fetch("configs/djs_routes.json")
             .then(response => response.json())

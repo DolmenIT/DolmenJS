@@ -13,6 +13,7 @@ import { djs_main_loop } from './classes/djs_main_loop.js';
 import { djs_timer_interface } from './classes/djs_timer_interface.js';
 import { djs_internationalization } from './classes/djs_internationalization.js';
 import { djs_fonts } from './classes/djs_fonts.js';
+import { djs_params } from './classes/djs_params.js';
 
 export class dolmenjs {
   ac: djs_action_library | undefined;
@@ -30,6 +31,7 @@ export class dolmenjs {
   rm: djs_routes_manager | undefined;
   ti: djs_timer_interface | undefined;
   wm: djs_window_manager | undefined;
+  params: djs_params | undefined;
 
   constructor() {
     console.log("dolmenjs:constructor");
@@ -51,6 +53,7 @@ export class dolmenjs {
     this.rm = new djs_routes_manager();
     this.ti = new djs_timer_interface();
     this.wm = new djs_window_manager();
+    this.params = new djs_params();
   }
 
   // Vous pouvez ajouter d'autres modules et propriétés ici si nécessaire

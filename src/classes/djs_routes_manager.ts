@@ -38,5 +38,14 @@ export class djs_routes_manager {
             }, 100);
         }
     }
+
+    get = (route_name: string) => {
+        if (this.routes_loaded) {
+            return this.json_routes["routes"][route_name];
+        } else {
+            console.error(`Route "${route_name}" not loaded yet.`);
+            return null;
+        }
+    }
 }
 //EOF
