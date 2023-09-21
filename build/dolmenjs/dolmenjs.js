@@ -14,6 +14,7 @@ import { djs_timer_interface } from './classes/djs_timer_interface.js';
 import { djs_internationalization } from './classes/djs_internationalization.js';
 import { djs_fonts } from './classes/djs_fonts.js';
 import { djs_params } from './classes/djs_params.js';
+import { djs_config } from './classes/djs_config.js';
 export class dolmenjs {
     constructor() {
         this.init = () => {
@@ -33,6 +34,7 @@ export class dolmenjs {
             this.ti = new djs_timer_interface();
             this.wm = new djs_window_manager();
             this.params = new djs_params();
+            this.config = new djs_config();
         };
         console.log("dolmenjs:constructor");
     }
