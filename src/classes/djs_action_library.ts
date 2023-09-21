@@ -9,7 +9,7 @@ export class djs_action_library {
         //const scriptUrl = new URL(document.currentScript.src).pathname;
         const filename = scriptUrl.substring(scriptUrl.lastIndexOf('/') + 1);
         if (typeof json_parameter.p_params != "undefined") {
-            djs.params.setAll(json_parameter.p_params)
+            djs.params.setAll(json_parameter.p_params);
         }
         const scriptElement = document.createElement("script");
         scriptElement.src = scriptUrl + "?" + Date.now();
