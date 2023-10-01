@@ -41,12 +41,11 @@ export class djs_window_manager {
         };
         this.get = this.getObject;
         this.destructWindow = (windowName) => {
-            const windowObjects = this.windowsWithObjects[windowName];
-            for (const name in windowObjects) {
-                const obj = windowObjects[name];
-                if (obj instanceof HTMLElement) {
-                    obj.remove();
+            for (const name in this.windowsWithObjects[windowName]) {
+                if (typeof this.windowsWithObjects[windowName][name] !== "undefined") {
+                    this.windowsWithObjects[windowName][name].remove();
                 }
+                delete this.windowsWithObjects[windowName][name];
             }
             delete this.windowsWithObjects[windowName];
         };

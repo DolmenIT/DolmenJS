@@ -27,7 +27,7 @@ export class djs_native_interface {
                 }
             });
         };
-        this.loadJS = (filePath, p_var_struct) => {
+        this.loadJS = (filePath, p_params) => {
             return new Promise((resolve, reject) => {
                 if (typeof window.nativeInterface === "undefined") {
                     fetch(filePath)
@@ -38,7 +38,7 @@ export class djs_native_interface {
                         else {
                             response.text()
                                 .then((fileContent) => {
-                                resolve({ data: fileContent, params: p_var_struct });
+                                resolve({ data: fileContent, p_params: p_params });
                             })
                                 .catch((error) => {
                                 reject(error);
@@ -52,7 +52,7 @@ export class djs_native_interface {
                 else {
                     try {
                         var fileData = window.nativeInterface.loadJS(filePath);
-                        resolve({ data: fileData, params: p_var_struct });
+                        resolve({ data: fileData, p_params: p_params });
                     }
                     catch (error) {
                         reject(error);

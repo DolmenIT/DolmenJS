@@ -9,6 +9,11 @@ export class djs_params {
                 this.all_params[key] = json_parameter[key];
             }
         };
+        this.reset = () => {
+            for (const key in this.all_params) {
+                delete this.all_params[key];
+            }
+        };
         this.set = (name, value) => {
             this.all_params[name] = value;
         };

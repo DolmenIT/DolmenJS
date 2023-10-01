@@ -1,3 +1,4 @@
+import { djs } from "../dolmenjs.js";
 export class djs_routes_manager {
     constructor() {
         this.routes_loaded = false;
@@ -11,7 +12,7 @@ export class djs_routes_manager {
             if (this.routes_loaded) {
                 console.log("djs_routes_manager:run_route:${route_name}:route_loaded");
                 var element = document.createElement('script');
-                element.setAttribute("src", this.json_routes["routes"][route_name]);
+                element.setAttribute("src", this.get(route_name));
                 document.head.appendChild(element);
             }
             else {
@@ -23,7 +24,7 @@ export class djs_routes_manager {
         };
         this.get = (route_name) => {
             if (this.routes_loaded) {
-                return this.json_routes["routes"][route_name];
+                return djs.config.get("base_url") + this.json_routes["routes"][route_name];
             }
             else {
                 console.error(`Route "${route_name}" not loaded yet.`);

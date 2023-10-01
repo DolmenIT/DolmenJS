@@ -17,6 +17,12 @@ export class djs_params {
         }
     };
 
+    reset = () => {
+        for (const key in this.all_params) {
+            delete this.all_params[key];
+        }
+    };
+
     set = (name: string, value: any) => {
         this.all_params[name] = value;
     };
