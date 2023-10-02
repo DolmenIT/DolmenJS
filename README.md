@@ -185,26 +185,26 @@ djs.oa.button({
 Le gestionnaire de fenetre a pour principale fonction de repertorier les éléments composants la vue actuel.  
 L'appel se fera avec "djs.wm".
 
-- djs.wm.set(WindowName : string)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.set(WindowName : string)
   > Alias de djs.wm.setWindow
-- djs.wm.setWindow(WindowName : string)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.setWindow(WindowName : string)
   > Défini le nom de la pile des prochains élements ajoutés
 
-- djs.wm.add(ObjectName : string, Object: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.add(ObjectName : string, Object: any)
   > Alias de djs.wm.addObject
-- djs.wm.addObject(ObjectName: string, Object: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.addObject(ObjectName: string, Object: any)
   > Ajoute un objet a la pile actuelle
-- djs.wm.addPersistant(ObjectName : string, Object: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.addPersistant(ObjectName : string, Object: any)
   > Ajoute un element a la pile generale
 
-- djs.wm.get(ObjectName : string)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.get(ObjectName : string)
   > Alias de djs.wm.getObject
-- djs.wm.getObject(ObjectName : string)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.getObject(ObjectName : string)
   > Retourne un element depuis la pile actuelle
 
-- djs.wm.destruct(WindowName : string)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.destruct(WindowName : string)
   > Alias de djs.wm.destructWindow
-- djs.wm.destructWindow(WindowName : string)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.destructWindow(WindowName : string)
   > Detruit tout les elements de pile indiqué
 
 ## Les vues
