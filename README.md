@@ -1,5 +1,9 @@
 # DolmenJS
 
+### Readme.md requirements
+This readme.md file uses font-awesome via Cloudflare CDN
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 ## Description
 
 DolmenJS est un Framework destiné a créer des applications mobile hybride. (web mobile, web encapsulée).  
@@ -209,5 +213,3 @@ L'appel se fera avec "djs.wm".
 
 DolmenJS est sous licence MIT.
 
-### Readme.md requirements
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
