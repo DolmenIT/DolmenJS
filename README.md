@@ -205,7 +205,7 @@ L'appel se fera avec "djs.wm".
 - <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.destruct(WindowName : string)
   > Alias de djs.wm.destructWindow
 - <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.destructWindow(WindowName : string)
-  > Detruit tout les elements de pile indiqué
+  > Detruit tout les elements de la pile indiquée
 
 ## Les vues
 
