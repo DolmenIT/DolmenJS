@@ -112,14 +112,14 @@ Exemple (par default) :
 Les objets basiques sont la base de l'interface dans DolmenJS. Il s'agit des objets visuel les plus génériques posible.  
 L'appel aux objets basiques se fera a l'aide de "djs.ob".
 
-- <i class="fas fa-globe" aria-label="public"></i> djs.ob.text(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.ob.text(ParentDOM : any, JsonParameters: any)
   >
-- <i class="fas fa-globe" aria-label="public"></i> djs.ob.icon(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.ob.icon(ParentDOM : any, JsonParameters: any)
   >
-- <i class="fas fa-globe" aria-label="public"></i> djs.ob.image(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.ob.image(ParentDOM : any, JsonParameters: any)
   >
 
-- <i class="fas fa-lock" aria-label="private"></i> djs.ob.createAndAppendElement(ParentDOM : any, JsonParameters: any, ClassName: String)
+- <i class="fas fa-lock" aria-label="private"> private</i> djs.ob.createAndAppendElement(ParentDOM : any, JsonParameters: any, ClassName: String)
   >
 
 Exemple :
@@ -137,24 +137,24 @@ djs.ob.text({
 Les objets avancés sont des combinaisons diverses des objets basiques. Il s'agit des objets visuel communément utilsés en interface graphique.  
 L'appel aux objets avancés se fera a l'aide de "djs.oa".
 
-- <i class="fas fa-globe" aria-label="public"></i> djs.oa.title(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.oa.title(ParentDOM : any, JsonParameters: any)
   > 
-- <i class="fas fa-globe" aria-label="public"></i> djs.oa.section(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.oa.section(ParentDOM : any, JsonParameters: any)
   > 
-- <i class="fas fa-globe" aria-label="public"></i> djs.oa.button(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.oa.button(ParentDOM : any, JsonParameters: any)
   > 
-- <i class="fas fa-globe" aria-label="public"></i> djs.oa.list(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.oa.list(ParentDOM : any, JsonParameters: any)
   > 
-- <i class="fas fa-globe" aria-label="public"></i> djs.oa.listitem(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.oa.listitem(ParentDOM : any, JsonParameters: any)
   > 
-- <i class="fas fa-globe" aria-label="public"></i> djs.oa.table(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.oa.table(ParentDOM : any, JsonParameters: any)
   > 
-- <i class="fas fa-globe" aria-label="public"></i> djs.oa.tablerow(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.oa.tablerow(ParentDOM : any, JsonParameters: any)
   > 
-- <i class="fas fa-globe" aria-label="public"></i> djs.oa.tablecell(ParentDOM : any, JsonParameters: any)
+- <i class="fas fa-globe" aria-label="public"> public</i> djs.oa.tablecell(ParentDOM : any, JsonParameters: any)
   > 
 
-- <i class="fas fa-lock" aria-label="private"></i> djs.oa.createAndAppendElement(ParentDOM : any, JsonParameters: any, ClassName: String)
+- <i class="fas fa-lock" aria-label="private"> private</i> djs.oa.createAndAppendElement(ParentDOM : any, JsonParameters: any, ClassName: String)
   >
 
 Exemple :
