@@ -1,28 +1,24 @@
 # DolmenJS
 
-### Readme.md requirements
+### Readme.md requirements :
 This readme.md file uses font-awesome via Cloudflare CDN
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 ## Description
-
 DolmenJS est un Framework destiné a créer des applications mobile hybride. (web mobile, web encapsulée).  
 Malgré son orientation hybride, il peut être aussi utilisé pour créer des application web.
-
-L'objectif de DolmenJS est d'éviter au maximum l'utilisation de plusieurs langage lors de la réalisation d'une application.
+L'objectif de DolmenJS est d'éviter au maximum l'utilisation de plusieurs langage lors de la réalisation d'une application.  
 Ainsi l'ensemble de la création d'un programme sera donc réalisé au travers d'instructions typescript/javascript.
 
 ## Fonctionnement
 
 ### Connaissances requises :
-
 Les connaissances nécessaire à la mise en oeuvre du framework sont :
 - Le typescript, ou le javascript (afin de créer des vues, des éléments, et des scripts)
 - Les scss, ou le css (afin de personnaliser l'apparence des éléments de l'application)
 - Le html (pour mettre en place le chargement du framework)
 
 ### Configurations du framework :
-
 Le fichier de configuration principale de l'application :
 - djs_config.json : Contient les informations et les chemins de l'application :
 
@@ -58,7 +54,7 @@ Exemple (par defaut) :
 }
 ```
 
-## Structure (sugéré par defaut)
+## Structure (sugéré par defaut) :
 
 ```
 <BASE_PATH>
@@ -90,7 +86,7 @@ Exemple (par defaut) :
       └── /**/*.mp3
 ```
 
-## Initialisation
+## Initialisation :
 
 - <BASE_PATH>/index.html :
 
@@ -108,7 +104,7 @@ Exemple (par default) :
 
 ## Les objets :
 
-### Les objets basiques
+### Les objets basiques :
 Les objets basiques sont la base de l'interface dans DolmenJS. Il s'agit des objets visuel les plus génériques posible.  
 L'appel aux objets basiques se fera a l'aide de "djs.ob".
 
@@ -133,7 +129,7 @@ djs.ob.text({
 });
 ```
 
-### Les objets avancés
+### Les objets avancés :
 Les objets avancés sont des combinaisons diverses des objets basiques. Il s'agit des objets visuel communément utilsés en interface graphique.  
 L'appel aux objets avancés se fera a l'aide de "djs.oa".
 
@@ -174,16 +170,22 @@ djs.oa.button({
 });
 ```
 
-## Les élements :
+### Les actions :
+L'appel aux actions se fera a l'aide de "djs.ac".
+
+### Les evenements :
+L'appel aux evenements se fera a l'aide de "djs.ev".
+
+## Les élements
 
 ### Le chargeur d'éléments :
+L'appel au chargeur d'éléments se fera a l'aide de "djs.el".
 
 ### Exemples d'éléments personnalisés :
 
-## Le gestionnaire de fenêtre :
-
+## Le gestionnaire de fenêtre
 Le gestionnaire de fenetre a pour principale fonction de repertorier les éléments composants la vue actuel.  
-L'appel se fera avec "djs.wm".
+L'appel au gestionnaire de fenêtre se fera a l'aide de "djs.wm".
 
 - <i class="fas fa-globe" aria-label="public"> public</i> djs.wm.set(WindowName : string)
   > Alias de djs.wm.setWindow
@@ -209,7 +211,15 @@ L'appel se fera avec "djs.wm".
 
 ## Les vues
 
+### La boucle principale :
+L'appel a la boucle principale se fera a l'aide de "djs.ml".
+
+### L'interface temps :
+L'appel a l'interface temps se fera a l'aide de "djs.ti".
+
+### L'interface native :
+L'appel a l'interface native se fera a l'aide de "djs.in".
+
 ## Licence
 
 DolmenJS est sous licence MIT.
-
