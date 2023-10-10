@@ -6,11 +6,14 @@ export class djs_object_advance {
     }
 
     createAndAppendElement = (dom_parent: HTMLElement | any, element_type: string, json_parameter: any, classname: string) => {
-        const appDiv = dom_parent || document.getElementById('app');
+        var appDiv = dom_parent;
         const element = document.createElement(element_type);
         element.className = classname;
 
         if (typeof json_parameter !== "undefined") {
+            if (typeof json_parameter.p_parent !== "undefined") {
+                appDiv = djs.wm.get(json_parameter.p_parent);
+            }
             if (typeof json_parameter.p_x !== "undefined") {
                 element.style.left = djs.di.px(json_parameter.p_x);
             }
@@ -57,6 +60,7 @@ export class djs_object_advance {
             }
         }
 
+        appDiv = appDiv || document.getElementById('app');
         appDiv.appendChild(element);
 
         return element;
@@ -72,6 +76,11 @@ export class djs_object_advance {
         return this.createAndAppendElement(null, 'section', json_parameter, classname);
     };
 
+    label = (json_parameter: any) => {
+        const classname = 'djs-label';
+        return this.createAndAppendElement(null, 'div', json_parameter, classname);
+    };
+
     button = (json_parameter: any) => {
         const classname = 'djs-button';
         const button = this.createAndAppendElement(null, 'button', json_parameter, classname);
@@ -83,6 +92,30 @@ export class djs_object_advance {
         }
 
         return button;
+    };
+
+    scrollX = (json_parameter: any) => {
+        const classname = 'djs-scroll';
+        const scroll = this.createAndAppendElement(null, 'div', json_parameter, classname);
+        scroll.style.overflowX = "scroll";
+        scroll.style.overflowY = "hidden";
+        return scroll;
+    };
+
+    scrollY = (json_parameter: any) => {
+        const classname = 'djs-scroll';
+        const scroll = this.createAndAppendElement(null, 'div', json_parameter, classname);
+        scroll.style.overflowX = "hidden";
+        scroll.style.overflowY = "scroll";
+        return scroll;
+    };
+
+    scrollXY = (json_parameter: any) => {
+        const classname = 'djs-scroll';
+        const scroll = this.createAndAppendElement(null, 'div', json_parameter, classname);
+        scroll.style.overflowX = "scroll";
+        scroll.style.overflowY = "scroll";
+        return scroll;
     };
 
     list = (json_parameter: any) => {
