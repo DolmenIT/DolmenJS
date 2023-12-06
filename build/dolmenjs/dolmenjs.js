@@ -59,6 +59,7 @@ export class dolmenjs {
                 djs.callback();
             }
             else {
+                console.log("dolmenjs.tryCallback.settimeout");
                 setTimeout(() => { djs.tryCallback(); }, 100);
             }
         };
